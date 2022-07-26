@@ -1,0 +1,52 @@
+CREATING TABLE CODE:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+
+namespace Assignment_CRUD
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // CODE for database creation in C# console app
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-MGF80OO\SQLEXPRESS;Initial Catalog=Customer;Integrated Security=True");
+            string q = @"Create table dbo.Course(CID int,CName varchar(50),Cfees int,DOA date,DOE date);";
+            SqlCommand command = new SqlCommand(q, con); //query and database path
+            con.Open();
+            command.ExecuteNonQuery(); //execute all the T-ql command againt the connection
+            Console.WriteLine("Database modified....");
+            Console.ReadLine();
+        }
+    }
+}
+ Alter table
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+
+namespace Company_CRUD
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // CODE for database creation in C# console app
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-MGF8000\SQLEXPRESS;Initial Catalog=Customer;Integrated Security=True");
+            string q = "alter table Customer add duration int;";
+            SqlCommand command = new SqlCommand(q, con);
+            con.Open();
+            command.ExecuteNonQuery(); //execute all the T-ql command againt the connection
+            Console.WriteLine("record has been inserted....");
+            Console.ReadLine();
+        }
+    }
+}
+
